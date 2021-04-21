@@ -67,7 +67,7 @@ img {
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  outline: 2px solid tomato;
+  /* outline: 2px solid tomato; */
 }
 .visually-hidden {
   position: absolute;
@@ -133,14 +133,16 @@ img {
 .header-contacts {
   display: flex;
 }
+.header-contacts {
+  margin-left: auto;
+}
 .nav-item:not(:last-child),
 .contacts-item:not(:last-child) {
   margin-right: 50px;
 }
-
-.site-nav .link,
-.header-contacts .link {
-  display: block;
+.nav-item > .link,
+.contacts-item > .link {
+  display: inline-flex;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -148,15 +150,30 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
 }
-.site-nav .link {
+.nav-item > .link {
   color: var(--title-text-color);
 }
-.header-contacts {
-  margin-left: auto;
-}
-.header-contacts .link {
+.contacts-item > .link {
   color: var(--primary-text-color);
 }
+/* .mail::before,
+.tel::before {
+  content: '';
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mail::before {
+  width: 16px;
+  height: 12px;
+  background-image: url('../images/svg/mail.svg');
+}
+.tel::before {
+  width: 10px;
+  height: 16px;
+  background-image: url('../images/svg/tel.svg');
+} */
 .site-nav .current,
 .site-nav :hover,
 .site-nav :focus,
@@ -200,6 +217,7 @@ img {
 .banner-button:focus {
   color: var(--accent-color);
   background-color: white;
+  border: none;
 }
 .button-filters {
   color: var(--title-text-color);
@@ -229,11 +247,22 @@ img {
 /* banner */
 
 .banner {
-  background-color: #2f303a;
+  max-width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
   color: white;
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
+  background-color: #2f303a;
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url('../images/banner/banner.jpg');
+  background-size: cover;
+  background-position: center;
 }
 .banner > .container {
   max-width: 696px;
@@ -258,9 +287,31 @@ img {
 .features-item:not(:last-child) {
   margin-right: 30px;
 }
+.features-item::before {
+  display: block;
+  content: '';
+  height: 120px;
+  background-color: var(--second-bg-color);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70px;
+}
+.features-item:nth-child(1)::before {
+  background-image: url('../images/svg/antenna.svg');
+}
+.features-item:nth-child(2)::before {
+  background-image: url('../images/svg/clock.svg');
+}
+.features-item:nth-child(3)::before {
+  background-image: url('../images/svg/diagram.svg');
+}
+.features-item:nth-child(4)::before {
+  background-image: url('../images/svg/astronaut.svg');
+}
 .features-title {
   color: var(--title-text-color);
 
+  margin-top: 30px;
   font-weight: 700;
   line-height: 1.14;
   text-transform: uppercase;
