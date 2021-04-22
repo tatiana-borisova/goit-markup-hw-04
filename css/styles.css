@@ -457,7 +457,9 @@ img {
   margin-left: var(--card-set-gap);
   margin-top: var(--card-set-gap);
 }
-
+.card {
+  display: block;
+}
 .card-text {
   padding: 20px 24px;
   border-right: 1px solid #eeeeee;
